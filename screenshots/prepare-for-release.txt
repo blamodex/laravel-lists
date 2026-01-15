@@ -1,0 +1,70 @@
+=== Laravel Lists Package - Release v1.0.0 Verification ===
+Date: Thu 15 Jan 2026 12:47:24 EST
+
+=== Composer Validate ===
+./composer.json is valid
+
+=== PHP CodeSniffer (PSR-12) ===
+........................ 24 / 24 (100%)
+
+
+Time: 628ms; Memory: 14MB
+
+
+=== PHPStan (Level 9) ===
+Note: Using configuration file /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpstan.neon.
+
+ [OK] No errors                                                                 
+
+
+=== PHPUnit Tests with Coverage ===
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD  63 / 190 ( 33%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 126 / 190 ( 66%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 189 / 190 ( 99%)
+D                                                               190 / 190 (100%)
+
+Time: 00:09.582, Memory: 46.50 MB
+
+OK, but there were issues!
+Tests: 190, Assertions: 435, Deprecations: 2.
+
+Generating code coverage report in Clover XML format ... done [00:00.003]
+
+Generating code coverage report in HTML format ... done [00:00.042]
+
+
+Code Coverage Report:
+  2026-01-15 17:47:35
+
+ Summary:
+  Classes: 100.00% (9/9)
+  Methods: 100.00% (38/38)
+  Lines:   100.00% (119/119)
+
+Blamodex\Lists\Exceptions\InvalidListAttributeException
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  2/  2)
+Blamodex\Lists\Exceptions\InvalidListableException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+Blamodex\Lists\Exceptions\ListOwnershipException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  1/  1)
+Blamodex\Lists\ListsServiceProvider
+  Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
+Blamodex\Lists\Models\ListItem
+  Methods: 100.00% ( 4/ 4)   Lines: 100.00% (  5/  5)
+Blamodex\Lists\Models\Lists
+  Methods: 100.00% (10/10)   Lines: 100.00% ( 33/ 33)
+Blamodex\Lists\Services\ListService
+  Methods: 100.00% (10/10)   Lines: 100.00% ( 41/ 41)
+Blamodex\Lists\Traits\HasLists
+  Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 10/ 10)
+Blamodex\Lists\Traits\Listable
+  Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 18/ 18)
+
+=== Git Tag ===
+v1.0.0
+
+=== RELEASE VERIFICATION COMPLETE ===

@@ -372,7 +372,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Submit to Packagist if not auto-registered",
       "Verify package can be installed in fresh Laravel project"
     ],
-    "passes": false
+    "passes": true
   }
 ]
 ```

@@ -34,6 +34,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `HasListsInterface` for list owner models
 - `ListableInterface` for listable models
 
+#### Exceptions
+- `ListException` base exception class for all package exceptions
+- `ListOwnershipException` for list ownership validation failures
+- `InvalidListableException` for unsaved model errors
+- `InvalidListAttributeException` for missing or invalid list attributes
+
 #### Service Layer
 - `ListService` for programmatic list management
   - `create()` - Create a new list for any model
@@ -65,8 +71,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Service provider for automatic registration
 
 #### Testing
-- Comprehensive unit tests (151 tests)
+- Comprehensive unit tests (167 tests)
 - Integration tests (23 tests)
+- Exception tests (16 tests for custom domain exceptions)
 - Test fixtures for dummy models
 - Orchestra Testbench integration
 

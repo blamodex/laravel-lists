@@ -334,6 +334,11 @@ laravel-lists/
 │   ├── Contracts/
 │   │   ├── HasListsInterface.php # Interface for list owners
 │   │   └── ListableInterface.php # Interface for listable models
+│   ├── Exceptions/
+│   │   ├── ListException.php     # Base exception class
+│   │   ├── ListOwnershipException.php
+│   │   ├── InvalidListableException.php
+│   │   └── InvalidListAttributeException.php
 │   ├── Models/
 │   │   ├── Lists.php             # List model
 │   │   └── ListItem.php          # List item pivot model
@@ -351,6 +356,7 @@ laravel-lists/
 │   ├── Integration/
 │   │   └── ListsIntegrationTest.php
 │   ├── Unit/
+│   │   ├── ExceptionsTest.php
 │   │   ├── HasListsTraitTest.php
 │   │   ├── ListableTraitTest.php
 │   │   ├── ListItemTest.php
