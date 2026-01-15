@@ -231,7 +231,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Test model can be removed from lists",
       "Test helper methods"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "testing",

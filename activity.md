@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-15
-**Tasks Completed:** 14
-**Current Task:** Write unit tests for HasLists trait (completed)
+**Tasks Completed:** 15
+**Current Task:** Write unit tests for Listable trait (completed)
 
 ---
 
@@ -467,4 +467,45 @@
 - PHP CodeSniffer (PSR-12): Passed with no errors
 
 **Screenshot:** screenshots/has-lists-trait-tests.txt
+
+### 2026-01-15 - Write Unit Tests for Listable Trait
+
+**Task:** Write unit tests for Listable trait
+
+**Changes Made:**
+- Created `tests/Unit/ListableTraitTest.php` with 24 comprehensive unit tests covering:
+  - lists() relationship returns MorphToMany
+  - lists() relationship returns empty collection by default
+  - lists() relationship returns lists containing model
+  - Model can be added to multiple lists
+  - Model can be removed from lists
+  - listItems() method returns Collection
+  - listItems() method returns empty collection by default
+  - listItems() method returns all list items for model
+  - listItems() method returns correct list items
+  - isInList() method returns true when in list
+  - isInList() method returns false when not in list
+  - isInList() method returns false after removal
+  - isInList() distinguishes between different lists
+  - lists() relationship does not include other models' lists
+  - Multiple listables can be in same list
+  - listItems() only returns items for this model
+  - lists() relationship includes timestamps on pivot
+  - lists() relationship returns MorphToMany instance
+  - lists() relationship returns Lists model
+  - listItems() returns ListItem model
+  - isInList() works with different owners
+  - Lists from different owners are included
+  - listItems() after soft delete returns empty
+  - lists() relationship after list soft delete returns empty
+
+**Files Created:**
+- `tests/Unit/ListableTraitTest.php`
+- `screenshots/listable-trait-tests.txt`
+
+**Validation:**
+- PHPUnit: 96 tests (29 Lists + 21 ListItem + 22 HasListsTrait + 24 ListableTrait), 181 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+
+**Screenshot:** screenshots/listable-trait-tests.txt
 

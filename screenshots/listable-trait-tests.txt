@@ -1,0 +1,81 @@
+==============================================================================
+Listable Trait Unit Tests - Validation Results
+==============================================================================
+
+Date: 2026-01-15
+Task: Write unit tests for Listable trait
+
+------------------------------------------------------------------------------
+PHPUnit Test Results
+------------------------------------------------------------------------------
+
+$ composer test
+
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 65 / 96 ( 67%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                                   96 / 96 (100%)
+
+Time: 00:02.761, Memory: 44.50 MB
+
+OK, but there were issues!
+Tests: 96, Assertions: 181, PHPUnit Warnings: 1, Deprecations: 2.
+
+Note: PHPUnit warning is about xdebug coverage mode, not test failures.
+      Deprecation warnings are from underlying dependencies, not our code.
+
+------------------------------------------------------------------------------
+PHP CodeSniffer (PSR-12) Results
+------------------------------------------------------------------------------
+
+$ composer lint
+
+................. 17 / 17 (100%)
+
+Time: 221ms; Memory: 12MB
+
+PASSED - No coding style errors detected.
+
+------------------------------------------------------------------------------
+Test Summary for ListableTraitTest
+------------------------------------------------------------------------------
+
+New tests added (24 tests):
+- testListsRelationshipReturnsMorphToMany
+- testListsRelationshipReturnsEmptyCollectionByDefault
+- testListsRelationshipReturnsListsContainingModel
+- testModelCanBeAddedToMultipleLists
+- testModelCanBeRemovedFromLists
+- testListItemsMethodReturnsCollection
+- testListItemsMethodReturnsEmptyCollectionByDefault
+- testListItemsMethodReturnsAllListItemsForModel
+- testListItemsMethodReturnsCorrectListItems
+- testIsInListMethodReturnsTrue
+- testIsInListMethodReturnsFalse
+- testIsInListMethodReturnsFalseAfterRemoval
+- testIsInListDistinguishesBetweenLists
+- testListsRelationshipDoesNotIncludeOtherModelsLists
+- testMultipleListablesInSameList
+- testListItemsOnlyReturnsItemsForThisModel
+- testListsRelationshipWithTimestamps
+- testListsRelationshipReturnsMorphToManyInstance
+- testListsRelationshipReturnsListsModel
+- testListItemsReturnsListItemModel
+- testIsInListWithDifferentOwners
+- testListsFromDifferentOwnersAreIncluded
+- testListItemsAfterSoftDelete
+- testListsRelationshipAfterListSoftDelete
+
+All 24 tests PASSED
+
+Total Test Suite:
+- Lists: 29 tests
+- ListItem: 21 tests
+- HasListsTrait: 22 tests
+- ListableTrait: 24 tests
+- TOTAL: 96 tests, 181 assertions
+
+==============================================================================
