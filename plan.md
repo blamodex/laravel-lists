@@ -206,13 +206,13 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Test unique constraint (list_id + listable_id + listable_type)",
       "Test soft deletes"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "testing",
-    "description": "Write unit tests for HasLists trait",
+    "description": "Write unit tests for Listable trait",
     "steps": [
-      "Create tests/Unit/HasListsTraitTest.php",
+      "Create tests/Unit/ListableTraitTest.php",
       "Test lists() relationship",
       "Test createList() method",
       "Test updateList() method",

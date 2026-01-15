@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-15
-**Tasks Completed:** 12
-**Current Task:** Write unit tests for Lists model
+**Tasks Completed:** 13
+**Current Task:** Write unit tests for ListItem model (completed)
 
 ---
 
@@ -392,4 +392,40 @@
 - PHP syntax check: No syntax errors detected
 
 **Screenshot:** screenshots/lists-model-tests.txt
+
+### 2026-01-15 - Write Unit Tests for ListItem Model
+
+**Task:** Write unit tests for ListItem model
+
+**Changes Made:**
+- Created `tests/Unit/ListItemTest.php` with 21 comprehensive unit tests covering:
+  - List item creation
+  - UUID auto-generation
+  - UUID uniqueness across items
+  - List belongsTo relationship
+  - List relationship returns BelongsTo type
+  - Listable morphTo relationship
+  - Listable relationship returns MorphTo type
+  - Unique constraint prevents duplicates (list_id + listable_id + listable_type)
+  - Same item can be in different lists
+  - Different items can be in the same list
+  - Soft deletes (delete, restore, force delete)
+  - uniqueIds() method
+  - getTable() method
+  - getTable() uses config value
+  - list_id integer casting
+  - listable_id integer casting
+  - Fillable attributes validation
+  - Timestamps recording
+  - Item belongs to correct list verification
+
+**Files Created:**
+- `tests/Unit/ListItemTest.php`
+- `screenshots/list-item-tests.txt`
+
+**Validation:**
+- PHPUnit: 50 tests (29 Lists + 21 ListItem), 91 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+
+**Screenshot:** screenshots/list-item-tests.txt
 
