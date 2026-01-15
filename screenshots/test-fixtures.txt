@@ -1,0 +1,45 @@
+=== Test Fixtures Validation ===
+
+Date: Thu 15 Jan 2026 07:14:45 EST
+
+=== PHP Syntax Check ===
+No syntax errors detected in tests/Fixtures/DummyListOwner.php
+No syntax errors detected in tests/Fixtures/DummyListable.php
+No syntax errors detected in tests/Fixtures/migrations/2024_01_01_000000_create_dummy_list_owners_table.php
+No syntax errors detected in tests/Fixtures/migrations/2024_01_01_000000_create_dummy_listables_table.php
+
+=== PHP CodeSniffer (PHPCS) ===
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+.... 4 / 4 (100%)
+
+
+Time: 46ms; Memory: 8MB
+
+
+=== PHPStan Analysis (Fixtures Only) ===
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+Note: Using configuration file /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpstan.neon.
+⚠️  You're using a deprecated config option checkGenericClassInNonGenericObjectType ⚠️️
+
+It's strongly recommended to remove it from your configuration file
+and add the missing generic typehints.
+
+If you want to continue ignoring missing typehints from generics,
+add missingType.generics error identifier to your ignoreErrors:
+
+parameters:
+	ignoreErrors:
+		-
+			identifier: missingType.generics
+
+ 0/2 [░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   0%[1G[2K 2/2 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+
+ [OK] No errors                                                                 
+
+
+=== Files Created ===
+tests/Fixtures/DummyListOwner.php
+tests/Fixtures/DummyListable.php
+tests/Fixtures/migrations/2024_01_01_000000_create_dummy_list_owners_table.php
+tests/Fixtures/migrations/2024_01_01_000000_create_dummy_listables_table.php

@@ -155,7 +155,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add any additional configuration options",
       "Document all configuration options"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "service-provider",
@@ -167,7 +167,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Load migrations in boot() method",
       "Bind ListService to container if needed"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "testing",
@@ -178,7 +178,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Create tests/Fixtures/DummyListable.php (Product-like model)",
       "Add Listable trait and ListableInterface"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "testing",
