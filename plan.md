@@ -63,7 +63,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add indexes on listable_id, listable_type",
       "Add unique constraint on list_id + listable_id + listable_type"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "models",

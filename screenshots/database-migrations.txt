@@ -1,0 +1,15 @@
+=== Database Migrations Validation ===
+
+PHP Syntax Validation:
+No syntax errors detected in /Users/joelblodgett/sites/packages/blamodex/laravel-lists/database/migrations/2024_01_01_000001_create_lists_table.php
+No syntax errors detected in /Users/joelblodgett/sites/packages/blamodex/laravel-lists/database/migrations/2024_01_01_000002_create_list_items_table.php
+No syntax errors detected in /Users/joelblodgett/sites/packages/blamodex/laravel-lists/config/lists.php
+No syntax errors detected in /Users/joelblodgett/sites/packages/blamodex/laravel-lists/src/ListsServiceProvider.php
+
+=== Files Created ===
+- database/migrations/2024_01_01_000001_create_lists_table.php
+- database/migrations/2024_01_01_000002_create_list_items_table.php
+- config/lists.php
+- src/ListsServiceProvider.php
+
+All migrations validated successfully\!

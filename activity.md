@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-14
-**Tasks Completed:** 3
-**Current Task:** Set up GitHub Actions CI/CD
+**Tasks Completed:** 4
+**Current Task:** Create database migrations
 
 ---
 
@@ -113,4 +113,46 @@
 - YAML syntax validation passed
 
 **Screenshot:** screenshots/github-actions-setup.txt
+
+### 2026-01-14 - Create Database Migrations
+
+**Task:** Create database migrations
+
+**Changes Made:**
+- Created `database/migrations/2024_01_01_000001_create_lists_table.php` with:
+  - id (bigint, primary key)
+  - uuid (unique identifier)
+  - slug (indexed, URL-friendly identifier)
+  - name (string)
+  - lister_id and lister_type (polymorphic owner)
+  - timestamps and soft deletes
+  - Composite index on [lister_id, lister_type]
+  - Unique constraint on [lister_id, lister_type, slug]
+- Created `database/migrations/2024_01_01_000002_create_list_items_table.php` with:
+  - id (bigint, primary key)
+  - uuid (unique identifier)
+  - list_id (foreign key with cascade delete)
+  - listable_id and listable_type (polymorphic item)
+  - timestamps and soft deletes
+  - Index on [listable_id, listable_type]
+  - Unique constraint on [list_id, listable_id, listable_type]
+- Created `config/lists.php` for configurable table names
+- Created `src/ListsServiceProvider.php` to register config and load migrations
+- Removed placeholder .gitkeep files from directories with content
+
+**Files Created:**
+- `database/migrations/2024_01_01_000001_create_lists_table.php`
+- `database/migrations/2024_01_01_000002_create_list_items_table.php`
+- `config/lists.php`
+- `src/ListsServiceProvider.php`
+
+**Files Removed:**
+- `database/migrations/.gitkeep`
+- `config/.gitkeep`
+- `src/.gitkeep`
+
+**Validation:**
+- PHP syntax check passed for all 4 new files
+
+**Screenshot:** screenshots/database-migrations.txt
 
