@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-15
-**Tasks Completed:** 13
-**Current Task:** Write unit tests for ListItem model (completed)
+**Tasks Completed:** 14
+**Current Task:** Write unit tests for HasLists trait (completed)
 
 ---
 
@@ -428,4 +428,43 @@
 - PHP CodeSniffer (PSR-12): Passed with no errors
 
 **Screenshot:** screenshots/list-item-tests.txt
+
+### 2026-01-15 - Write Unit Tests for HasLists Trait
+
+**Task:** Write unit tests for HasLists trait
+
+**Changes Made:**
+- Created `tests/Unit/HasListsTraitTest.php` with 22 comprehensive unit tests covering:
+  - lists() relationship returns MorphMany
+  - lists() relationship returns empty collection by default
+  - lists() relationship returns owned lists only
+  - createList() method creates list with correct attributes
+  - createList() method with custom slug
+  - createList() method auto-generates slug from name
+  - createList() method persists to database
+  - updateList() method updates list attributes
+  - updateList() method persists changes to database
+  - updateList() method does not change slug
+  - updateList() throws InvalidArgumentException when list not owned
+  - deleteList() method soft deletes list
+  - deleteList() removes list from query results
+  - deleteList() throws InvalidArgumentException when list not owned
+  - Owner can manage multiple lists
+  - lists() relationship does not include other owners' lists
+  - Ownership check fails with different lister_type
+  - Ownership check fails with different lister_id
+  - createList() returns list with correct lister relationship
+  - Multiple owners can have lists with same name
+  - updateList() returns refreshed model instance
+  - deleteList() removes list from owner's collection
+
+**Files Created:**
+- `tests/Unit/HasListsTraitTest.php`
+- `screenshots/has-lists-trait-tests.txt`
+
+**Validation:**
+- PHPUnit: 72 tests (29 Lists + 21 ListItem + 22 HasListsTrait), 132 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+
+**Screenshot:** screenshots/has-lists-trait-tests.txt
 

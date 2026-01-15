@@ -1,0 +1,95 @@
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 65 / 72 ( 90%)
+DDDDDDD                                                           72 / 72 (100%)
+
+Time: 00:02.037, Memory: 44.50 MB
+
+Has Lists Trait (Blamodex\Lists\Tests\Unit\HasListsTrait)
+ ✔ Lists relationship returns morph many
+ ✔ Lists relationship returns empty collection by default
+ ✔ Lists relationship returns owned lists
+ ✔ Create list method
+ ✔ Create list method with slug
+ ✔ Create list method auto generates slug
+ ✔ Create list method persists to database
+ ✔ Update list method
+ ✔ Update list method persists to database
+ ✔ Update list method does not change slug
+ ✔ Update list throws exception when not owned
+ ✔ Delete list method
+ ✔ Delete list method soft deletes
+ ✔ Delete list throws exception when not owned
+ ✔ Owner can manage multiple lists
+ ✔ Lists relationship does not include other owners lists
+ ✔ Ownership check fails with different lister type
+ ✔ Ownership check fails with different lister id
+ ✔ Create list returns list with correct relationship
+ ✔ Multiple owners can have lists with same name
+ ✔ Update list returns refreshed model
+ ✔ Delete list removes from owner collection
+
+List Item (Blamodex\Lists\Tests\Unit\ListItem)
+ ✔ Can create list item
+ ✔ Uuid is auto generated
+ ✔ Uuid is unique across items
+ ✔ List relationship
+ ✔ List relationship returns belongs to
+ ✔ Listable relationship
+ ✔ Listable relationship returns morph to
+ ✔ Unique constraint prevents full duplicates
+ ✔ Same item can be in different lists
+ ✔ Different items can be in same list
+ ✔ Soft deletes
+ ✔ Can restore soft deleted item
+ ✔ Can force delete item
+ ✔ Unique ids method
+ ✔ Get table method
+ ✔ Get table uses config value
+ ✔ List id is cast to integer
+ ✔ Listable id is cast to integer
+ ✔ Fillable attributes
+ ✔ Timestamps are recorded
+ ✔ Item belongs to correct list
+
+Lists (Blamodex\Lists\Tests\Unit\Lists)
+ ✔ Can create list with owner
+ ✔ Slug is auto generated from name
+ ✔ Slug is not overwritten if provided
+ ✔ Uuid is auto generated
+ ✔ Uuid is always generated
+ ✔ Lister relationship
+ ✔ Items relationship
+ ✔ Soft deletes
+ ✔ Add item method
+ ✔ Add item does not duplicate
+ ✔ Add items method
+ ✔ Remove item method
+ ✔ Remove item returns false when not found
+ ✔ Remove items method
+ ✔ Remove items returns count of actually removed
+ ✔ Has item method
+ ✔ Has item returns false after removal
+ ✔ Unique ids method
+ ✔ Get table method
+ ✔ Get table uses config value
+ ✔ Lister id is cast to integer
+ ✔ Fillable attributes
+ ✔ Timestamps are recorded
+ ✔ Can update list
+ ✔ Slug does not change on update
+ ✔ Can force delete list
+ ✔ Can restore soft deleted list
+ ✔ Items relationship returns has many
+ ✔ Lister relationship returns morph to
+
+There was 1 PHPUnit test runner warning:
+
+1) XDEBUG_MODE=coverage (environment variable) or xdebug.mode=coverage (PHP configuration setting) has to be set
+
+OK, but there were issues!
+Tests: 72, Assertions: 132, PHPUnit Warnings: 1, Deprecations: 2.
