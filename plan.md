@@ -79,7 +79,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add boot() method with slug auto-generation from name",
       "Add helper methods: addItem(), addItems(), removeItem(), removeItems(), hasItem()"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "models",

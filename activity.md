@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-14
-**Tasks Completed:** 4
-**Current Task:** Create database migrations
+**Tasks Completed:** 5
+**Current Task:** Create List model
 
 ---
 
@@ -155,4 +155,45 @@
 - PHP syntax check passed for all 4 new files
 
 **Screenshot:** screenshots/database-migrations.txt
+
+### 2026-01-14 - Create List Model
+
+**Task:** Create List model
+
+**Changes Made:**
+- Created `src/Models/Lists.php` with:
+  - SoftDeletes and HasUuids traits
+  - Fillable attributes: name, slug, lister_id, lister_type
+  - Integer cast for lister_id
+  - boot() method with automatic slug generation from name
+  - boot() method with automatic UUID generation
+  - lister() morphTo relationship for polymorphic owner
+  - items() hasMany relationship to ListItem
+  - addItem() method to add a single item to the list
+  - addItems() method to add multiple items at once
+  - removeItem() method to remove a single item
+  - removeItems() method to remove multiple items
+  - hasItem() method to check if an item exists in the list
+  - Dynamic table name from config via getTable()
+  - uniqueIds() method for UUID column identification
+- Created `src/Models/ListItem.php` as a dependency with:
+  - SoftDeletes and HasUuids traits
+  - Fillable attributes: list_id, listable_id, listable_type
+  - Integer casts for list_id and listable_id
+  - boot() method with automatic UUID generation
+  - list() belongsTo relationship to Lists
+  - listable() morphTo relationship for polymorphic items
+  - Dynamic table name from config via getTable()
+  - uniqueIds() method for UUID column identification
+
+**Files Created:**
+- `src/Models/Lists.php`
+- `src/Models/ListItem.php`
+
+**Validation:**
+- PHP syntax check passed for both model files
+
+**Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
+
+**Screenshot:** screenshots/list-model-creation.txt
 
