@@ -1,0 +1,59 @@
+{
+    "name": "blamodex/laravel-lists",
+    "description": "A lightweight Laravel package to manage lists with polymorphic relationships",
+    "keywords": [
+        "laravel",
+        "lists",
+        "polymorphic",
+        "eloquent",
+        "wishlist",
+        "favorites"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Blamodex",
+            "email": "blackmage.codex@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^10.0|^11.0",
+        "illuminate/support": "^10.0|^11.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0",
+        "phpunit/phpunit": "^10.0|^11.0",
+        "phpstan/phpstan": "^1.10",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blamodex\\Lists\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Blamodex\\Lists\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Blamodex\\Lists\\ListsServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test:coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "lint": "vendor/bin/phpcs",
+        "lint:fix": "vendor/bin/phpcbf",
+        "analyze": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
