@@ -1,0 +1,45 @@
+================================================================================
+Laravel Lists Package - 100% Test Coverage Achievement
+================================================================================
+
+Date: 2026-01-15 17:32
+
+PHPUnit Results:
+----------------
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+Runtime:       PHP 8.5.1 with Xdebug 3.5.0
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+Tests: 174, Assertions: 408
+
+Code Coverage Report:
+  Summary:
+  Classes: 100.00% (6/6)
+  Methods: 100.00% (34/34)
+  Lines:   100.00% (115/115)
+
+  Blamodex\Lists\ListsServiceProvider
+    Methods: 100.00% ( 2/ 2)   Lines: 100.00% (  8/  8)
+  Blamodex\Lists\Models\ListItem
+    Methods: 100.00% ( 4/ 4)   Lines: 100.00% (  5/  5)
+  Blamodex\Lists\Models\Lists
+    Methods: 100.00% (10/10)   Lines: 100.00% ( 33/ 33)
+  Blamodex\Lists\Services\ListService
+    Methods: 100.00% (10/10)   Lines: 100.00% ( 41/ 41)
+  Blamodex\Lists\Traits\HasLists
+    Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 10/ 10)
+  Blamodex\Lists\Traits\Listable
+    Methods: 100.00% ( 3/ 3)   Lines: 100.00% ( 18/ 18)
+
+PHP CodeSniffer (PSR-12):
+-------------------------
+................... 19 / 19 (100%)
+Time: 378ms; Memory: 14MB
+
+PHPStan (Level 9):
+------------------
+[OK] No errors
+
+================================================================================
+All quality checks passed with 100% coverage\!
+================================================================================

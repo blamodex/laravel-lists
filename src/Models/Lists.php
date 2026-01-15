@@ -66,10 +66,6 @@ class Lists extends Model
             if (empty($list->slug)) {
                 $list->slug = Str::slug($list->name);
             }
-
-            if (empty($list->uuid)) {
-                $list->uuid = (string) Str::uuid();
-            }
         });
     }
 

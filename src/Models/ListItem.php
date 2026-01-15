@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Str;
 
 /**
  * @property int $id
@@ -53,20 +52,6 @@ class ListItem extends Model
         'list_id' => 'integer',
         'listable_id' => 'integer',
     ];
-
-    /**
-     * Boot the model.
-     */
-    protected static function boot(): void
-    {
-        parent::boot();
-
-        static::creating(function (ListItem $item): void {
-            if (empty($item->uuid)) {
-                $item->uuid = (string) Str::uuid();
-            }
-        });
-    }
 
     /**
      * Get the table associated with the model.

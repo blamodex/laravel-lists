@@ -323,7 +323,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Verify 100% line coverage, 100% method coverage, 100% branch coverage",
       "Add @codeCoverageIgnore only where absolutely necessary with justification"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "quality",
