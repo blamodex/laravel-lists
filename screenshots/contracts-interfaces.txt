@@ -1,0 +1,99 @@
+=== Contract Files Validation ===
+
+Date: Wed 14 Jan 2026 23:27:30 EST
+
+--- PHP Syntax Check ---
+No syntax errors detected in src/Contracts/HasListsInterface.php
+No syntax errors detected in src/Contracts/ListableInterface.php
+
+--- Files Created ---
+total 16
+drwxr-xr-x@ 4 joelblodgett  staff   128 14 Jan 23:27 .
+drwxr-xr-x@ 7 joelblodgett  staff   224 14 Jan 23:21 ..
+-rw-r--r--@ 1 joelblodgett  staff  1001 14 Jan 23:26 HasListsInterface.php
+-rw-r--r--@ 1 joelblodgett  staff   876 14 Jan 23:27 ListableInterface.php
+
+--- HasListsInterface.php ---
+<?php
+
+declare(strict_types=1);
+
+namespace Blamodex\Lists\Contracts;
+
+use Blamodex\Lists\Models\Lists;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+
+/**
+ * Interface for models that can own lists.
+ *
+ * Implement this interface on models that should be able to create and manage lists,
+ * such as User, Team, or Organization models.
+ */
+interface HasListsInterface
+{
+    /**
+     * Get all lists owned by this model.
+     *
+     * @return MorphMany<Lists, $this>
+     */
+    public function lists(): MorphMany;
+
+    /**
+     * Create a new list owned by this model.
+     *
+     * @param array<string, mixed> $attributes
+     */
+    public function createList(array $attributes): Lists;
+
+    /**
+     * Update an existing list owned by this model.
+     *
+     * @param array<string, mixed> $attributes
+     */
+    public function updateList(Lists $list, array $attributes): Lists;
+
+    /**
+     * Delete a list owned by this model.
+     */
+    public function deleteList(Lists $list): bool;
+}
+
+--- ListableInterface.php ---
+<?php
+
+declare(strict_types=1);
+
+namespace Blamodex\Lists\Contracts;
+
+use Blamodex\Lists\Models\ListItem;
+use Blamodex\Lists\Models\Lists;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+
+/**
+ * Interface for models that can be added to lists.
+ *
+ * Implement this interface on models that should be listable,
+ * such as Product, Article, or any other content model.
+ */
+interface ListableInterface
+{
+    /**
+     * Get all lists that contain this model.
+     *
+     * @return MorphToMany<Lists, $this>
+     */
+    public function lists(): MorphToMany;
+
+    /**
+     * Get all list items for this model.
+     *
+     * @return Collection<int, ListItem>
+     */
+    public function listItems(): Collection;
+
+    /**
+     * Check if this model is in a specific list.
+     */
+    public function isInList(Lists $list): bool;
+}

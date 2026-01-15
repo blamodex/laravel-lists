@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-14
-**Tasks Completed:** 5
-**Current Task:** Create List model
+**Tasks Completed:** 7
+**Current Task:** Create contracts and interfaces
 
 ---
 
@@ -196,4 +196,34 @@
 **Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
 
 **Screenshot:** screenshots/list-model-creation.txt
+
+### 2026-01-14 - Create Contracts and Interfaces
+
+**Task:** Create contracts and interfaces
+
+**Changes Made:**
+- Created `src/Contracts/HasListsInterface.php` with:
+  - Interface for models that can own lists (e.g., User, Team)
+  - `lists()` method returning MorphMany relationship
+  - `createList()` method for creating new lists
+  - `updateList()` method for updating existing lists
+  - `deleteList()` method for deleting lists
+  - Full PHPDoc annotations with type hints
+- Created `src/Contracts/ListableInterface.php` with:
+  - Interface for models that can be added to lists (e.g., Product, Article)
+  - `lists()` method returning MorphToMany relationship
+  - `listItems()` method to get all list items for the model
+  - `isInList()` method to check if model is in a specific list
+  - Full PHPDoc annotations with type hints
+
+**Files Created:**
+- `src/Contracts/HasListsInterface.php`
+- `src/Contracts/ListableInterface.php`
+
+**Validation:**
+- PHP syntax check passed for both interface files
+
+**Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
+
+**Screenshot:** screenshots/contracts-interfaces.txt
 

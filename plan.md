@@ -93,7 +93,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Create listable() morphTo relationship",
       "Add unique constraint validation in boot() or via database"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "contracts",
@@ -104,7 +104,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Create src/Contracts/ListableInterface.php",
       "Define methods: lists() relationship"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "traits",
