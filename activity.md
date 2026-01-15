@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-14
-**Tasks Completed:** 9
-**Current Task:** Create Listable trait
+**Tasks Completed:** 10
+**Current Task:** Create ListService
 
 ---
 
@@ -277,4 +277,35 @@
 **Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
 
 **Screenshot:** screenshots/listable-trait.txt
+
+### 2026-01-14 - Create ListService
+
+**Task:** Create ListService
+
+**Changes Made:**
+- Created `src/Services/ListService.php` with:
+  - `create(Model $lister, array $attributes)` method to create a new list for any model
+  - `update(Lists $list, array $attributes)` method to update an existing list
+  - `delete(Lists $list)` method to soft delete a list
+  - `addItem(Lists $list, Model $listable)` method to add a single item to a list
+  - `addItems(Lists $list, array $listables)` method to add multiple items at once
+  - `removeItem(Lists $list, Model $listable)` method to remove a single item
+  - `removeItems(Lists $list, array $listables)` method to remove multiple items
+  - `hasItem(Lists $list, Model $listable)` method to check if an item is in the list
+  - `getItems(Lists $list)` method to get all items in a list
+  - `clearItems(Lists $list)` method to remove all items from a list
+  - Validation with `InvalidArgumentException` for missing required attributes
+  - Validation with `InvalidArgumentException` for unsaved listable models
+  - Full PHPDoc annotations with type hints and descriptions
+  - Strict types declaration
+
+**Files Created:**
+- `src/Services/ListService.php`
+
+**Validation:**
+- PHP syntax check passed for ListService.php
+
+**Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
+
+**Screenshot:** screenshots/list-service.txt
 

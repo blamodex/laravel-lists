@@ -1,0 +1,69 @@
+=== ListService Creation Validation ===
+
+Date: Wed 14 Jan 2026 23:34:35 EST
+
+=== PHP Syntax Check ===
+No syntax errors detected in src/Services/ListService.php
+
+=== File Structure ===
+total 16
+drwxr-xr-x@ 3 joelblodgett  staff    96 14 Jan 23:34 .
+drwxr-xr-x@ 7 joelblodgett  staff   224 14 Jan 23:21 ..
+-rw-r--r--@ 1 joelblodgett  staff  5193 14 Jan 23:34 ListService.php
+
+=== File Contents Preview ===
+<?php
+
+declare(strict_types=1);
+
+namespace Blamodex\Lists\Services;
+
+use Blamodex\Lists\Models\ListItem;
+use Blamodex\Lists\Models\Lists;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use InvalidArgumentException;
+
+/**
+ * Service class for managing lists and list items.
+ *
+ * Provides a centralized service layer for create, update, delete operations
+ * on lists, as well as adding and removing items from lists.
+ */
+class ListService
+{
+    /**
+     * Create a new list for the given owner.
+     *
+     * @param Model $lister The model that will own the list.
+     * @param array<string, mixed> $attributes The list attributes (name, slug, etc.).
+     *
+     * @throws InvalidArgumentException If required attributes are missing.
+     */
+    public function create(Model $lister, array $attributes): Lists
+    {
+        if (empty($attributes['name'])) {
+            throw new InvalidArgumentException('The "name" attribute is required to create a list.');
+        }
+
+        $list = new Lists();
+        $list->fill($attributes);
+        $list->lister_id = $lister->getKey();
+        $list->lister_type = $lister->getMorphClass();
+        $list->save();
+
+        return $list;
+    }
+
+    /**
+     * Update an existing list.
+     *
+     * @param Lists $list The list to update.
+     * @param array<string, mixed> $attributes The attributes to update.
+     */
+    public function update(Lists $list, array $attributes): Lists
+
+=== Note ===
+Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS)
+could not be run due to network restrictions preventing composer install.
+These will be validated when dependencies are available.

@@ -144,7 +144,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Implement removeItems(Lists $list, array $listables): int method",
       "Add validation and error handling"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "config",
