@@ -277,7 +277,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add contributing guidelines link",
       "Add license information"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "documentation",
