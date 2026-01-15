@@ -1,0 +1,94 @@
+=== HasLists Trait Validation ===
+
+Date: Wed 14 Jan 2026 23:30:04 EST
+
+=== PHP Syntax Check ===
+No syntax errors detected in /Users/joelblodgett/sites/packages/blamodex/laravel-lists/src/Traits/HasLists.php
+
+=== File Contents ===
+<?php
+
+declare(strict_types=1);
+
+namespace Blamodex\Lists\Traits;
+
+use Blamodex\Lists\Models\Lists;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use InvalidArgumentException;
+
+/**
+ * Trait for models that can own lists.
+ *
+ * Use this trait on models that should be able to create and manage lists,
+ * such as User, Team, or Organization models.
+ *
+ * @mixin \Illuminate\Database\Eloquent\Model
+ */
+trait HasLists
+{
+    /**
+     * Get all lists owned by this model.
+     *
+     * @return MorphMany<Lists, $this>
+     */
+    public function lists(): MorphMany
+    {
+        return $this->morphMany(Lists::class, 'lister');
+    }
+
+    /**
+     * Create a new list owned by this model.
+     *
+     * @param array<string, mixed> $attributes
+     */
+    public function createList(array $attributes): Lists
+    {
+        /** @var Lists $list */
+        $list = $this->lists()->create($attributes);
+
+        return $list;
+    }
+
+    /**
+     * Update an existing list owned by this model.
+     *
+     * @param array<string, mixed> $attributes
+     *
+     * @throws InvalidArgumentException If the list is not owned by this model.
+     */
+    public function updateList(Lists $list, array $attributes): Lists
+    {
+        $this->assertListOwnership($list);
+
+        $list->update($attributes);
+
+        return $list->fresh() ?? $list;
+    }
+
+    /**
+     * Delete a list owned by this model.
+     *
+     * @throws InvalidArgumentException If the list is not owned by this model.
+     */
+    public function deleteList(Lists $list): bool
+    {
+        $this->assertListOwnership($list);
+
+        return (bool) $list->delete();
+    }
+
+    /**
+     * Assert that the given list is owned by this model.
+     *
+     * @throws InvalidArgumentException If the list is not owned by this model.
+     */
+    protected function assertListOwnership(Lists $list): void
+    {
+        if ($list->lister_id !== $this->getKey() || $list->lister_type !== $this->getMorphClass()) {
+            throw new InvalidArgumentException('The provided list is not owned by this model.');
+        }
+    }
+}
+
+=== Composer Install Status ===
+Network restrictions prevent composer install - tests cannot be run until dependencies are available.

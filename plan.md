@@ -117,7 +117,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Implement deleteList(Lists $list): bool method",
       "Add authorization checks to ensure lister owns the list"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "traits",
