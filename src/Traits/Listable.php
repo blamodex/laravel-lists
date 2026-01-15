@@ -32,7 +32,7 @@ trait Listable
             config('lists.table_names.list_items', 'list_items'),
             'listable_id',
             'list_id'
-        )->withTimestamps();
+        )->wherePivotNull('deleted_at')->withTimestamps();
     }
 
     /**

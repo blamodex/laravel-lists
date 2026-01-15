@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-15
-**Tasks Completed:** 15
-**Current Task:** Write unit tests for Listable trait (completed)
+**Tasks Completed:** 16
+**Current Task:** Write integration tests (completed)
 
 ---
 
@@ -591,4 +591,56 @@
 - PHP CodeSniffer (PSR-12): Passed with no errors
 
 **Screenshot:** screenshots/list-service-tests.txt
+
+### 2026-01-15 - Write Integration Tests
+
+**Task:** Write integration tests
+
+**Changes Made:**
+- Created comprehensive integration tests in `tests/Integration/ListsIntegrationTest.php` with 23 tests covering:
+  - Migration tests (3 tests):
+    - Migrations run successfully
+    - Lists table has correct columns
+    - List items table has correct columns
+  - Full workflow tests (2 tests):
+    - Complete workflow: create list, add items, remove items, delete list (using trait)
+    - Complete workflow using ListService directly
+  - Multiple owners tests (3 tests):
+    - Multiple owners with multiple lists
+    - Owners cannot modify other owners' lists
+    - Owners cannot delete other owners' lists
+  - Same item in multiple lists tests (2 tests):
+    - Same item in multiple lists (same owner)
+    - Same item in multiple owners' lists
+  - Polymorphic relationship tests (4 tests):
+    - Polymorphic relationships work correctly
+    - MorphMany relationship from owner
+    - MorphToMany relationship from listable
+    - ListItems relationship from listable
+  - Data integrity tests (3 tests):
+    - Unique constraint prevents duplicate list items
+    - Cascade delete behavior on list removal
+    - Soft deleted lists are excluded from relationships
+  - Edge case tests (6 tests):
+    - Empty list behavior
+    - Listable not in any list
+    - Slug uniqueness per owner enforced
+    - Different owners can have same slug
+    - Large number of items in list (100 items)
+    - UUID uniqueness across models
+- Fixed bug in `Listable::lists()` relationship where soft-deleted pivot records were not being filtered out
+  - Added `wherePivotNull('deleted_at')` to the morphToMany relationship
+
+**Files Created:**
+- `tests/Integration/ListsIntegrationTest.php`
+- `screenshots/integration-tests.txt`
+
+**Files Modified:**
+- `src/Traits/Listable.php` - Added `wherePivotNull('deleted_at')` to filter soft-deleted list items
+
+**Validation:**
+- PHPUnit: 174 tests (151 Unit + 23 Integration), 408 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+
+**Screenshot:** screenshots/integration-tests.txt
 

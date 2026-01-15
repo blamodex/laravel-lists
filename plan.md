@@ -261,7 +261,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Test polymorphic relationships work correctly",
       "Test migrations run successfully"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "documentation",

@@ -1,0 +1,41 @@
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9003 (through xdebug.client_host/xdebug.client_port).
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDD                                           23 / 23 (100%)
+
+Time: 00:00.941, Memory: 42.50 MB
+
+Lists Integration (Blamodex\Lists\Tests\Integration\ListsIntegration)
+ ✔ Migrations run successfully
+ ✔ Lists table has correct columns
+ ✔ List items table has correct columns
+ ✔ Full workflow create add remove delete
+ ✔ Full workflow using service
+ ✔ Multiple owners with multiple lists
+ ✔ Owners cannot modify other owners lists
+ ✔ Owners cannot delete other owners lists
+ ✔ Same item in multiple lists
+ ✔ Same item in multiple owners lists
+ ✔ Polymorphic relationships work correctly
+ ✔ Morph many relationship from owner
+ ✔ Morph to many relationship from listable
+ ✔ List items relationship from listable
+ ✔ Unique constraint preventsduplicate list items
+ ✔ Cascade delete on list removes list items
+ ✔ Soft deleted lists are excluded from relationships
+ ✔ Empty list behavior
+ ✔ Listable not in any list
+ ✔ Slug uniqueness per owner enforced
+ ✔ Different owners can have same slug
+ ✔ Large number of items in list
+ ✔ Uuid uniqueness across models
+
+There was 1 PHPUnit test runner warning:
+
+1) XDEBUG_MODE=coverage (environment variable) or xdebug.mode=coverage (PHP configuration setting) has to be set
+
+OK, but there were issues!
+Tests: 23, Assertions: 120, PHPUnit Warnings: 1, Deprecations: 2.
