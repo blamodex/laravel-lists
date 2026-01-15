@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="Blamodex Laravel Lists">
+    <description>PSR-12 coding standard for Blamodex Laravel Lists package</description>
+
+    <!-- Paths to check -->
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Exclude paths -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/coverage/*</exclude-pattern>
+    <exclude-pattern>*/.phpunit.cache/*</exclude-pattern>
+
+    <!-- Arguments -->
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <arg name="extensions" value="php"/>
+
+    <!-- Use PSR-12 as the base standard -->
+    <rule ref="PSR12">
+        <!-- Allow longer lines in tests for readability -->
+        <exclude name="Generic.Files.LineLength"/>
+    </rule>
+
+    <!-- Ensure strict types declaration -->
+    <rule ref="Generic.PHP.RequireStrictTypes"/>
+
+    <!-- Ensure proper spacing -->
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
+</ruleset>

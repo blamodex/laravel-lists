@@ -36,7 +36,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Configure phpstan.neon for static analysis",
       "Create .phpcs.xml for code style checking"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "setup",
