@@ -289,7 +289,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add pull request template",
       "Document testing requirements for contributions"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "quality",
