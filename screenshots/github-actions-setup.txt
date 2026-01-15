@@ -1,0 +1,29 @@
+=== GitHub Actions CI/CD Setup Validation ===
+
+Workflow file created: .github/workflows/tests.yml
+
+--- YAML Syntax Validation ---
+✓ YAML syntax is valid
+
+--- Workflow Configuration Summary ---
+• PHP Matrix: 8.1, 8.2, 8.3
+• Laravel Matrix: 10.*, 11.*
+• Excluded: PHP 8.1 + Laravel 11.* (incompatible)
+
+--- Test Job Steps ---
+• Checkout code
+• Setup PHP with extensions
+• Cache Composer dependencies
+• Install dependencies
+• Run PHPUnit tests with coverage
+• Upload coverage to Codecov
+
+--- Code Quality Job Steps ---
+• Checkout code
+• Setup PHP 8.3
+• Cache Composer dependencies
+• Install dependencies
+• Run PHP_CodeSniffer
+• Run PHPStan
+
+=== All validations passed ===

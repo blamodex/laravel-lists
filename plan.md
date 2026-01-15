@@ -48,7 +48,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Configure Laravel matrix testing (10.x, 11.x)",
       "Add code coverage reporting"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "database",
