@@ -57,7 +57,18 @@ jobs:
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --coverage-clover coverage.xml
+        run: vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
+
+      - name: Check code coverage threshold
+        if: matrix.php == '8.3' && matrix.laravel == '11.*'
+        run: |
+          COVERAGE=$(vendor/bin/phpunit --coverage-text 2>/dev/null | grep -E "^\s+Lines:" | awk '{print $2}' | tr -d '%')
+          echo "Code coverage: ${COVERAGE}%"
+          if [ "$COVERAGE" != "100.00" ]; then
+            echo "Error: Code coverage is ${COVERAGE}%, but 100% is required."
+            exit 1
+          fi
+          echo "Code coverage check passed: ${COVERAGE}%"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4

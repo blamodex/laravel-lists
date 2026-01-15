@@ -1,6 +1,9 @@
 # Blamodex Laravel Lists
 
 [![Tests](https://github.com/blamodex/laravel-lists/actions/workflows/tests.yml/badge.svg)](https://github.com/blamodex/laravel-lists/actions/workflows/tests.yml)
+[![Code Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/blamodex/laravel-lists)
+[![PHPStan Level 9](https://img.shields.io/badge/PHPStan-level%209-brightgreen.svg)](https://phpstan.org/)
+[![Code Style](https://img.shields.io/badge/code%20style-PSR--12-brightgreen.svg)](https://www.php-fig.org/psr/psr-12/)
 [![Latest Version](https://img.shields.io/packagist/v/blamodex/laravel-lists.svg)](https://packagist.org/packages/blamodex/laravel-lists)
 [![License](https://img.shields.io/packagist/l/blamodex/laravel-lists.svg)](https://packagist.org/packages/blamodex/laravel-lists)
 [![PHP Version](https://img.shields.io/packagist/php-v/blamodex/laravel-lists.svg)](https://packagist.org/packages/blamodex/laravel-lists)

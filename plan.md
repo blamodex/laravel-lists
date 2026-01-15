@@ -354,7 +354,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Ensure no TODO or FIXME comments remain",
       "Verify all docblocks are complete and accurate"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "release",
