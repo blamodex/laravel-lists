@@ -1,0 +1,10 @@
+=== PHP Syntax Validation for Listable Trait ===
+
+Checking: src/Traits/Listable.php
+No syntax errors detected in src/Traits/Listable.php
+
+=== Validation Complete ===
+PHP syntax check: PASSED
+
+Note: Full test suite, PHPStan, and PHPCS could not be run due to
+network restrictions preventing composer install.

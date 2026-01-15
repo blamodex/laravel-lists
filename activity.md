@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-14
-**Tasks Completed:** 8
-**Current Task:** Create HasLists trait
+**Tasks Completed:** 9
+**Current Task:** Create Listable trait
 
 ---
 
@@ -252,4 +252,29 @@
 **Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
 
 **Screenshot:** screenshots/has-lists-trait.txt
+
+### 2026-01-14 - Create Listable Trait
+
+**Task:** Create Listable trait
+
+**Changes Made:**
+- Created `src/Traits/Listable.php` with:
+  - `lists()` morphToMany relationship to Lists model via 'listable' morph through list_items table
+  - Uses configurable table name from `config('lists.table_names.list_items')`
+  - Includes `withTimestamps()` for pivot timestamps
+  - `listItems()` method to get all ListItem records for this model
+  - `isInList(Lists $list)` method to check if model is in a specific list
+  - Full PHPDoc annotations with type hints
+  - `@mixin \Illuminate\Database\Eloquent\Model` annotation for IDE support
+  - Implements all methods defined in `ListableInterface`
+
+**Files Created:**
+- `src/Traits/Listable.php`
+
+**Validation:**
+- PHP syntax check passed for Listable trait
+
+**Note:** Full test suite (PHPUnit), static analysis (PHPStan), and code style (PHPCS) could not be run due to network restrictions preventing composer install. These will be validated when dependencies are available.
+
+**Screenshot:** screenshots/listable-trait.txt
 

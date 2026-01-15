@@ -128,7 +128,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add helper method to check if model is in a specific list",
       "Add helper method to get all list_items for this model"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "services",
