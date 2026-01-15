@@ -338,7 +338,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Ensure no @SuppressWarnings or similar annotations",
       "Use array shapes in PHPStan annotations where applicable"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "quality",

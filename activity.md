@@ -819,3 +819,59 @@
 
 **Screenshot:** screenshots/100-percent-test-coverage.txt
 
+### 2026-01-15 - Strict Type Safety and Error Handling
+
+**Task:** Strict type safety and error handling
+
+**Changes Made:**
+- Created custom domain-specific exception hierarchy:
+  - `src/Exceptions/ListException.php` - Base exception class for all package exceptions
+  - `src/Exceptions/ListOwnershipException.php` - Thrown when list ownership validation fails
+  - `src/Exceptions/InvalidListableException.php` - Thrown when adding unsaved models to lists
+  - `src/Exceptions/InvalidListAttributeException.php` - Thrown when required list attributes are missing
+- Updated `src/Services/ListService.php` to use custom exceptions:
+  - Replaced `InvalidArgumentException` with `InvalidListAttributeException::missingAttribute('name')`
+  - Replaced `InvalidArgumentException` with `InvalidListableException::unsavedModel()`
+- Updated `src/Traits/HasLists.php` to use custom exceptions:
+  - Replaced `InvalidArgumentException` with `ListOwnershipException::notOwner()`
+- Created comprehensive exception tests in `tests/Unit/ExceptionsTest.php`:
+  - Tests for base `ListException` class
+  - Tests for `ListOwnershipException` factory method
+  - Tests for `InvalidListableException` factory method
+  - Tests for `InvalidListAttributeException` factory methods (missingAttribute, emptyAttribute)
+  - Tests for exception hierarchy (catching with base class)
+- Updated existing tests to use new exception classes:
+  - `tests/Unit/HasListsTraitTest.php` - Updated to expect `ListOwnershipException`
+  - `tests/Unit/ListServiceTest.php` - Updated to expect `InvalidListAttributeException` and `InvalidListableException`
+  - `tests/Integration/ListsIntegrationTest.php` - Updated to expect `ListOwnershipException`
+
+**Exception Hierarchy:**
+```
+ListException (base)
+├── ListOwnershipException
+├── InvalidListableException
+└── InvalidListAttributeException
+```
+
+**Files Created:**
+- `src/Exceptions/ListException.php`
+- `src/Exceptions/ListOwnershipException.php`
+- `src/Exceptions/InvalidListableException.php`
+- `src/Exceptions/InvalidListAttributeException.php`
+- `tests/Unit/ExceptionsTest.php`
+- `screenshots/strict-type-safety.txt`
+
+**Files Modified:**
+- `src/Services/ListService.php` - Updated exception imports and usage
+- `src/Traits/HasLists.php` - Updated exception imports and usage
+- `tests/Unit/HasListsTraitTest.php` - Updated exception assertions
+- `tests/Unit/ListServiceTest.php` - Updated exception assertions
+- `tests/Integration/ListsIntegrationTest.php` - Updated exception assertions
+
+**Validation:**
+- PHPUnit: PASSED - 190 tests, 435 assertions (16 new exception tests)
+- PHP CodeSniffer (PSR-12): PASSED - 24 files, 0 errors
+- PHPStan (Level 9): PASSED - 0 errors
+
+**Screenshot:** screenshots/strict-type-safety.txt
+

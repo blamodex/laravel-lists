@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Blamodex\Lists\Tests\Integration;
 
+use Blamodex\Lists\Exceptions\ListOwnershipException;
 use Blamodex\Lists\Models\ListItem;
 use Blamodex\Lists\Models\Lists;
 use Blamodex\Lists\Services\ListService;
@@ -213,7 +214,7 @@ class ListsIntegrationTest extends TestCase
         $user1List = $user1->createList(['name' => 'User 1 List']);
 
         // User 2 should not be able to update User 1's list
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $user2->updateList($user1List, ['name' => 'Hacked List']);
@@ -227,7 +228,7 @@ class ListsIntegrationTest extends TestCase
         $user1List = $user1->createList(['name' => 'User 1 List']);
 
         // User 2 should not be able to delete User 1's list
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $user2->deleteList($user1List);

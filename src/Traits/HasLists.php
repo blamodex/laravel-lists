@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Blamodex\Lists\Traits;
 
+use Blamodex\Lists\Exceptions\ListOwnershipException;
 use Blamodex\Lists\Models\Lists;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use InvalidArgumentException;
 
 /**
  * Trait for models that can own lists.
@@ -46,7 +46,7 @@ trait HasLists
      *
      * @param array<string, mixed> $attributes
      *
-     * @throws InvalidArgumentException If the list is not owned by this model.
+     * @throws ListOwnershipException If the list is not owned by this model.
      */
     public function updateList(Lists $list, array $attributes): Lists
     {
@@ -60,7 +60,7 @@ trait HasLists
     /**
      * Delete a list owned by this model.
      *
-     * @throws InvalidArgumentException If the list is not owned by this model.
+     * @throws ListOwnershipException If the list is not owned by this model.
      */
     public function deleteList(Lists $list): bool
     {
@@ -72,12 +72,12 @@ trait HasLists
     /**
      * Assert that the given list is owned by this model.
      *
-     * @throws InvalidArgumentException If the list is not owned by this model.
+     * @throws ListOwnershipException If the list is not owned by this model.
      */
     protected function assertListOwnership(Lists $list): void
     {
         if ($list->lister_id !== $this->getKey() || $list->lister_type !== $this->getMorphClass()) {
-            throw new InvalidArgumentException('The provided list is not owned by this model.');
+            throw ListOwnershipException::notOwner();
         }
     }
 }

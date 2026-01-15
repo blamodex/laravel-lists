@@ -1,0 +1,45 @@
+=== Laravel Lists - Strict Type Safety and Error Handling ===
+Date: Thu 15 Jan 2026 12:40:04 EST
+
+=== PHPUnit Test Results ===
+Tests: 190 (16 new exception tests)
+Assertions: 435
+Status: PASSED
+
+=== PHP CodeSniffer (PSR-12) ===
+Files: 24
+Errors: 0
+Status: PASSED
+
+=== PHPStan (Level 9) ===
+Errors: 0
+Status: PASSED
+
+=== Changes Made ===
+1. Created custom domain exceptions:
+   - src/Exceptions/ListException.php (base exception)
+   - src/Exceptions/ListOwnershipException.php
+   - src/Exceptions/InvalidListableException.php
+   - src/Exceptions/InvalidListAttributeException.php
+
+2. Updated services to use custom exceptions:
+   - src/Services/ListService.php
+   - src/Traits/HasLists.php
+
+3. Created exception tests:
+   - tests/Unit/ExceptionsTest.php (16 tests)
+
+4. Updated existing tests to use custom exceptions:
+   - tests/Unit/HasListsTraitTest.php
+   - tests/Unit/ListServiceTest.php
+   - tests/Integration/ListsIntegrationTest.php
+
+=== Exception Hierarchy ===
+ListException (base)
+├── ListOwnershipException
+├── InvalidListableException
+└── InvalidListAttributeException
+
+All exceptions can be caught with a single catch(ListException) block,
+or caught individually for more specific handling.
+

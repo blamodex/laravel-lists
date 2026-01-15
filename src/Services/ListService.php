@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Blamodex\Lists\Services;
 
+use Blamodex\Lists\Exceptions\InvalidListableException;
+use Blamodex\Lists\Exceptions\InvalidListAttributeException;
 use Blamodex\Lists\Models\ListItem;
 use Blamodex\Lists\Models\Lists;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use InvalidArgumentException;
 
 /**
  * Service class for managing lists and list items.
@@ -24,12 +25,12 @@ class ListService
      * @param Model $lister The model that will own the list.
      * @param array<string, mixed> $attributes The list attributes (name, slug, etc.).
      *
-     * @throws InvalidArgumentException If required attributes are missing.
+     * @throws InvalidListAttributeException If required attributes are missing.
      */
     public function create(Model $lister, array $attributes): Lists
     {
         if (empty($attributes['name'])) {
-            throw new InvalidArgumentException('The "name" attribute is required to create a list.');
+            throw InvalidListAttributeException::missingAttribute('name');
         }
 
         $list = new Lists();
@@ -72,14 +73,14 @@ class ListService
      * @param Lists $list The list to add the item to.
      * @param Model $listable The model to add to the list.
      *
-     * @throws InvalidArgumentException If the listable model has no primary key.
+     * @throws InvalidListableException If the listable model has no primary key.
      */
     public function addItem(Lists $list, Model $listable): ListItem
     {
         $key = $listable->getKey();
 
         if ($key === null) {
-            throw new InvalidArgumentException('The listable model must be saved before adding to a list.');
+            throw InvalidListableException::unsavedModel();
         }
 
         /** @var ListItem $item */
@@ -99,7 +100,7 @@ class ListService
      *
      * @return Collection<int, ListItem> Collection of created/existing list items.
      *
-     * @throws InvalidArgumentException If any listable model has no primary key.
+     * @throws InvalidListableException If any listable model has no primary key.
      */
     public function addItems(Lists $list, array $listables): Collection
     {

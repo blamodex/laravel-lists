@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Blamodex\Lists\Tests\Unit;
 
+use Blamodex\Lists\Exceptions\InvalidListableException;
+use Blamodex\Lists\Exceptions\InvalidListAttributeException;
 use Blamodex\Lists\Models\ListItem;
 use Blamodex\Lists\Models\Lists;
 use Blamodex\Lists\Services\ListService;
@@ -11,7 +13,6 @@ use Blamodex\Lists\Tests\Fixtures\DummyListable;
 use Blamodex\Lists\Tests\Fixtures\DummyListOwner;
 use Blamodex\Lists\Tests\TestCase;
 use Illuminate\Database\Eloquent\Collection;
-use InvalidArgumentException;
 
 class ListServiceTest extends TestCase
 {
@@ -91,7 +92,7 @@ class ListServiceTest extends TestCase
 
     public function testCreateMethodThrowsExceptionWhenNameMissing(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidListAttributeException::class);
         $this->expectExceptionMessage('The "name" attribute is required to create a list.');
 
         $this->service->create($this->owner, []);
@@ -99,7 +100,7 @@ class ListServiceTest extends TestCase
 
     public function testCreateMethodThrowsExceptionWhenNameEmpty(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidListAttributeException::class);
         $this->expectExceptionMessage('The "name" attribute is required to create a list.');
 
         $this->service->create($this->owner, ['name' => '']);
@@ -272,7 +273,7 @@ class ListServiceTest extends TestCase
         $list = $this->service->create($this->owner, ['name' => 'My List']);
         $listable = new DummyListable(['name' => 'Unsaved Product']);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidListableException::class);
         $this->expectExceptionMessage('The listable model must be saved before adding to a list.');
 
         $this->service->addItem($list, $listable);
@@ -352,7 +353,7 @@ class ListServiceTest extends TestCase
         $listable1 = DummyListable::create(['name' => 'Product 1']);
         $listable2 = new DummyListable(['name' => 'Unsaved Product']);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidListableException::class);
         $this->expectExceptionMessage('The listable model must be saved before adding to a list.');
 
         $this->service->addItems($list, [$listable1, $listable2]);

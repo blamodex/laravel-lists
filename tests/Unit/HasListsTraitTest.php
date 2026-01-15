@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Blamodex\Lists\Tests\Unit;
 
+use Blamodex\Lists\Exceptions\ListOwnershipException;
 use Blamodex\Lists\Models\Lists;
 use Blamodex\Lists\Tests\Fixtures\DummyListable;
 use Blamodex\Lists\Tests\Fixtures\DummyListOwner;
 use Blamodex\Lists\Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use InvalidArgumentException;
 
 class HasListsTraitTest extends TestCase
 {
@@ -153,7 +153,7 @@ class HasListsTraitTest extends TestCase
             'name' => 'Other List',
         ]);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $this->owner->updateList($list, [
@@ -200,7 +200,7 @@ class HasListsTraitTest extends TestCase
             'name' => 'Other List',
         ]);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $this->owner->deleteList($list);
@@ -246,7 +246,7 @@ class HasListsTraitTest extends TestCase
             'lister_type' => 'DifferentModel',
         ]);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $this->owner->updateList($list, ['name' => 'Updated']);
@@ -266,7 +266,7 @@ class HasListsTraitTest extends TestCase
             'lister_type' => $this->owner->getMorphClass(),
         ]);
 
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException(ListOwnershipException::class);
         $this->expectExceptionMessage('The provided list is not owned by this model.');
 
         $this->owner->deleteList($list);
