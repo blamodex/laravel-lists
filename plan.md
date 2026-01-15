@@ -193,7 +193,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Test addItem(), addItems(), removeItem(), removeItems() methods",
       "Test hasItem() method"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "testing",

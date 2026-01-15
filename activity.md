@@ -2,8 +2,8 @@
 
 ## Current Status
 **Last Updated:** 2026-01-15
-**Tasks Completed:** 11
-**Current Task:** Create test fixtures
+**Tasks Completed:** 12
+**Current Task:** Write unit tests for Lists model
 
 ---
 
@@ -347,4 +347,49 @@
 - PHPStan analysis passed with 0 errors for fixture files
 
 **Screenshot:** screenshots/test-fixtures.txt
+
+### 2026-01-15 - Write Unit Tests for Lists Model
+
+**Task:** Write unit tests for List model
+
+**Changes Made:**
+- Created `tests/Unit/ListsTest.php` with 29 comprehensive unit tests covering:
+  - List creation with owner
+  - Slug auto-generation from name
+  - Slug preservation when provided
+  - UUID auto-generation
+  - UUID uniqueness across lists
+  - Lister (owner) morphTo relationship
+  - Items hasMany relationship
+  - Soft deletes (delete, restore, force delete)
+  - addItem() method
+  - addItem() deduplication (no duplicates)
+  - addItems() method for batch addition
+  - removeItem() method
+  - removeItem() returns false when item not found
+  - removeItems() method for batch removal
+  - removeItems() returns count of actually removed items
+  - hasItem() method
+  - hasItem() returns false after removal
+  - uniqueIds() method
+  - getTable() method
+  - getTable() uses config value
+  - lister_id integer casting
+  - fillable attributes validation
+  - timestamps recording
+  - list update functionality
+  - slug stability on name update
+  - items() relationship type verification
+  - lister() relationship type verification
+
+**Files Created:**
+- `tests/Unit/ListsTest.php`
+- `screenshots/lists-model-tests.txt`
+
+**Validation:**
+- PHPUnit: 29 tests, 55 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+- PHP syntax check: No syntax errors detected
+
+**Screenshot:** screenshots/lists-model-tests.txt
 

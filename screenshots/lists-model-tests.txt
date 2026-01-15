@@ -1,0 +1,30 @@
+=== Laravel Lists Package - Unit Tests for Lists Model ===
+
+Date: Thu 15 Jan 2026 07:18:57 EST
+
+=== PHPUnit Tests ===
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDD                                     29 / 29 (100%)
+
+Time: 00:00.922, Memory: 42.50 MB
+
+There was 1 PHPUnit test runner warning:
+
+1) XDEBUG_MODE=coverage (environment variable) or xdebug.mode=coverage (PHP configuration setting) has to be set
+
+OK, but there were issues!
+Tests: 29, Assertions: 55, PHPUnit Warnings: 1, Deprecations: 2.
+
+=== PHP CodeSniffer (PSR-12 Linting) ===
+. 1 / 1 (100%)
+
+
+Time: 314ms; Memory: 12MB
+
+
+=== PHP Syntax Check ===
+No syntax errors detected in tests/Unit/ListsTest.php
