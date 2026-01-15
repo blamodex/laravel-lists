@@ -18,6 +18,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $description
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Blamodex\Lists\Models\Lists> $lists
+ *
+ * @method static DummyListable|null find(mixed $id)
+ * @method static DummyListable create(array<string, mixed> $attributes)
+ * @method static \Illuminate\Database\Eloquent\Builder<DummyListable> query()
+ *
+ * @implements ListableInterface<DummyListable>
  */
 class DummyListable extends Model implements ListableInterface
 {

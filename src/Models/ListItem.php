@@ -22,6 +22,11 @@ use Illuminate\Support\Str;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read Lists $list
  * @property-read Model $listable
+ *
+ * @method static ListItem|null find(mixed $id)
+ * @method static ListItem create(array<string, mixed> $attributes)
+ * @method static \Illuminate\Database\Eloquent\Builder<ListItem> query()
+ * @method static \Illuminate\Database\Eloquent\Builder<ListItem> where(string $column, mixed $operator = null, mixed $value = null)
  */
 class ListItem extends Model
 {
@@ -68,7 +73,10 @@ class ListItem extends Model
      */
     public function getTable(): string
     {
-        return config('lists.table_names.list_items', 'list_items');
+        /** @var string $table */
+        $table = config('lists.table_names.list_items', 'list_items');
+
+        return $table;
     }
 
     /**
@@ -84,7 +92,7 @@ class ListItem extends Model
     /**
      * Get the list that owns this item.
      *
-     * @return BelongsTo<Lists, ListItem>
+     * @return BelongsTo<Lists, $this>
      */
     public function list(): BelongsTo
     {
@@ -94,7 +102,7 @@ class ListItem extends Model
     /**
      * Get the listable model (polymorphic).
      *
-     * @return MorphTo<Model, ListItem>
+     * @return MorphTo<Model, $this>
      */
     public function listable(): MorphTo
     {

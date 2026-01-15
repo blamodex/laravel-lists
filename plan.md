@@ -304,7 +304,7 @@ Building a lightweight Laravel package to manage lists with polymorphic relation
       "Add composer scripts: test, lint, lint:fix, analyze",
       "Add pre-commit hook to run linter and static analysis"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "category": "quality",

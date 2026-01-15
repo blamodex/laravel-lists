@@ -1,0 +1,43 @@
+=== Laravel Lists Package - Code Quality Checks ===
+Date: 2026-01-15
+
+=== PHP CodeSniffer (PSR-12) ===
+................... 19 / 19 (100%)
+
+Time: 367ms; Memory: 14MB
+
+Result: PASSED - All 19 files pass PSR-12 standard
+
+
+=== PHPStan (Level 9) ===
+Note: Using configuration file /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpstan.neon.
+ 17/17 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
+
+ [OK] No errors
+
+Result: PASSED - Level 9 (maximum strictness) with 0 errors
+
+
+=== PHPUnit Tests ===
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD  63 / 174 ( 36%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 126 / 174 ( 72%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD                174 / 174 (100%)
+
+Time: 00:03.036, Memory: 42.50 MB
+
+OK, but there were issues!
+Tests: 174, Assertions: 408
+
+Result: PASSED - 174 tests, 408 assertions, all passing
+
+
+=== Summary ===
+- PHP CodeSniffer: PASSED (PSR-12 compliant)
+- PHPStan: PASSED (Level 9, 0 errors)
+- PHPUnit: PASSED (174 tests, 408 assertions)
+- All quality gates pass

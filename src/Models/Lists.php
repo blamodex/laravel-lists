@@ -24,6 +24,10 @@ use Illuminate\Support\Str;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read Model $lister
  * @property-read Collection<int, ListItem> $items
+ *
+ * @method static Lists|null find(mixed $id)
+ * @method static Lists create(array<string, mixed> $attributes)
+ * @method static \Illuminate\Database\Eloquent\Builder<Lists> query()
  */
 class Lists extends Model
 {
@@ -74,7 +78,10 @@ class Lists extends Model
      */
     public function getTable(): string
     {
-        return config('lists.table_names.lists', 'lists');
+        /** @var string $table */
+        $table = config('lists.table_names.lists', 'lists');
+
+        return $table;
     }
 
     /**
@@ -90,7 +97,7 @@ class Lists extends Model
     /**
      * Get the owner of the list (polymorphic).
      *
-     * @return MorphTo<Model, Lists>
+     * @return MorphTo<Model, $this>
      */
     public function lister(): MorphTo
     {
@@ -100,7 +107,7 @@ class Lists extends Model
     /**
      * Get all items in the list.
      *
-     * @return HasMany<ListItem>
+     * @return HasMany<ListItem, $this>
      */
     public function items(): HasMany
     {

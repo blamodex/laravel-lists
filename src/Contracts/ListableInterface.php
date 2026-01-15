@@ -14,13 +14,15 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  *
  * Implement this interface on models that should be listable,
  * such as Product, Article, or any other content model.
+ *
+ * @template TModel of \Illuminate\Database\Eloquent\Model
  */
 interface ListableInterface
 {
     /**
      * Get all lists that contain this model.
      *
-     * @return MorphToMany<Lists, $this>
+     * @return MorphToMany<Lists, covariant TModel>
      */
     public function lists(): MorphToMany;
 

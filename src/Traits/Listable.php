@@ -26,10 +26,13 @@ trait Listable
      */
     public function lists(): MorphToMany
     {
+        /** @var string $tableName */
+        $tableName = config('lists.table_names.list_items', 'list_items');
+
         return $this->morphToMany(
             Lists::class,
             'listable',
-            config('lists.table_names.list_items', 'list_items'),
+            $tableName,
             'listable_id',
             'list_id'
         )->wherePivotNull('deleted_at')->withTimestamps();

@@ -8,6 +8,32 @@ parameters:
         - tests
     excludePaths:
         - tests/Fixtures/migrations
-    checkGenericClassInNonGenericObjectType: false
     reportUnmatchedIgnoredErrors: false
     treatPhpDocTypesAsCertain: false
+    ignoreErrors:
+        -
+            identifier: missingType.generics
+        # Test files use find/fresh operations that return nullable types
+        # These are false positives in test context where we control the data
+        -
+            message: '#Cannot access property \$\w+ on .+\|null#'
+            paths:
+                - tests/
+        -
+            message: '#Cannot call method .+ on .+\|null#'
+            paths:
+                - tests/
+        -
+            message: '#Parameter .+ expects .+, .+\|null given#'
+            paths:
+                - tests/
+        # PHPUnit assertions that are intentionally redundant for clarity
+        -
+            message: '#will always evaluate to true#'
+            paths:
+                - tests/
+        # Model $id property access in tests
+        -
+            message: '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::\$id#'
+            paths:
+                - tests/

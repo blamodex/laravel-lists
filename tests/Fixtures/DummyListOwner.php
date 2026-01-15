@@ -18,6 +18,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Blamodex\Lists\Models\Lists> $lists
+ *
+ * @method static DummyListOwner|null find(mixed $id)
+ * @method static DummyListOwner create(array<string, mixed> $attributes)
+ * @method static \Illuminate\Database\Eloquent\Builder<DummyListOwner> query()
+ *
+ * @implements HasListsInterface<DummyListOwner>
  */
 class DummyListOwner extends Model implements HasListsInterface
 {

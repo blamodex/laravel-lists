@@ -34,7 +34,9 @@ class ListService
 
         $list = new Lists();
         $list->fill($attributes);
-        $list->lister_id = $lister->getKey();
+        /** @var int $listerId */
+        $listerId = $lister->getKey();
+        $list->lister_id = $listerId;
         $list->lister_type = $lister->getMorphClass();
         $list->save();
 
@@ -184,6 +186,9 @@ class ListService
      */
     public function clearItems(Lists $list): int
     {
-        return $list->items()->delete();
+        /** @var int $count */
+        $count = $list->items()->delete();
+
+        return $count;
     }
 }

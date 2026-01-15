@@ -12,13 +12,15 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  *
  * Implement this interface on models that should be able to create and manage lists,
  * such as User, Team, or Organization models.
+ *
+ * @template TModel of \Illuminate\Database\Eloquent\Model
  */
 interface HasListsInterface
 {
     /**
      * Get all lists owned by this model.
      *
-     * @return MorphMany<Lists, $this>
+     * @return MorphMany<Lists, covariant TModel>
      */
     public function lists(): MorphMany;
 
