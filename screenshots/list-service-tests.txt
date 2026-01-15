@@ -1,0 +1,48 @@
+=== ListService Unit Tests ===
+
+Date: 2026-01-15
+Test File: tests/Unit/ListServiceTest.php
+Total Tests Added: 55 new tests for ListService
+
+=== PHPUnit Test Results ===
+
+PHPUnit 11.5.46 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.5.1
+Configuration: /Users/joelblodgett/sites/packages/blamodex/laravel-lists/phpunit.xml
+
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD  63 / 151 ( 41%)
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 126 / 151 ( 83%)
+DDDDDDDDDDDDDDDDDDDDDDDDD                                       151 / 151 (100%)
+
+Time: 00:04.240, Memory: 44.50 MB
+
+OK, but there were issues!
+Tests: 151, Assertions: 288, Deprecations: 2.
+
+=== PHP_CodeSniffer (PSR-12) ===
+
+.................. 18 / 18 (100%)
+
+Time: 337ms; Memory: 14MB
+
+All files passed PSR-12 code style check.
+
+=== Test Coverage Summary ===
+
+Tests for ListService methods:
+- create() - 8 tests
+- update() - 5 tests
+- delete() - 4 tests
+- addItem() - 5 tests
+- addItems() - 5 tests
+- removeItem() - 4 tests
+- removeItems() - 4 tests
+- hasItem() - 4 tests
+- getItems() - 4 tests
+- clearItems() - 4 tests
+- Edge cases and integration - 8 tests
+
+Total new tests: 55
+Total tests in suite: 151
+Total assertions: 288

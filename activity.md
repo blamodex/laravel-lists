@@ -509,3 +509,86 @@
 
 **Screenshot:** screenshots/listable-trait-tests.txt
 
+### 2026-01-15 - Write Unit Tests for ListService
+
+**Task:** Write unit tests for ListService
+
+**Changes Made:**
+- Created `tests/Unit/ListServiceTest.php` with 55 comprehensive unit tests covering:
+  - create() method (8 tests):
+    - Creates list with correct attributes
+    - Persists to database
+    - Custom slug support
+    - Auto-generates slug
+    - Auto-generates UUID
+    - Throws exception when name missing
+    - Throws exception when name empty
+    - Works with different owner types
+  - update() method (5 tests):
+    - Updates list attributes
+    - Persists changes to database
+    - Returns refreshed model
+    - Does not change slug
+    - Can update multiple attributes
+  - delete() method (4 tests):
+    - Soft deletes list
+    - Removes list from query results
+    - Allows recovery with trashed
+    - Returns bool
+  - addItem() method (5 tests):
+    - Adds item to list
+    - Persists to database
+    - Does not duplicate items
+    - Throws exception for unsaved model
+    - Generates UUID for item
+  - addItems() method (5 tests):
+    - Adds multiple items
+    - Returns collection of ListItems
+    - Handles empty array
+    - Does not duplicate existing items
+    - Throws exception for unsaved model
+  - removeItem() method (4 tests):
+    - Removes item from list
+    - Returns false when item not found
+    - Deletes from database
+    - Only removes specific item
+  - removeItems() method (4 tests):
+    - Removes multiple items
+    - Returns count of removed items
+    - Handles empty array
+    - Returns zero when no items removed
+  - hasItem() method (4 tests):
+    - Returns true when item exists
+    - Returns false when item not exists
+    - Returns false after removal
+    - Distinguishes between lists
+  - getItems() method (4 tests):
+    - Returns Collection
+    - Returns empty collection for empty list
+    - Returns all list items
+    - Returns ListItems not Listables
+  - clearItems() method (4 tests):
+    - Removes all items
+    - Returns count of removed items
+    - Returns zero for empty list
+    - Deletes from database
+  - Edge cases and integration (8 tests):
+    - Same item in multiple lists
+    - Multiple owners
+    - Full workflow (create, add, remove, update, clear, delete)
+    - Service is instantiable
+    - Remove from different list doesn't affect original
+    - Deleting list doesn't affect other lists
+    - Create sets timestamps
+    - AddItem sets timestamps on ListItem
+
+**Files Created:**
+- `tests/Unit/ListServiceTest.php`
+- `screenshots/list-service-tests.txt`
+
+**Validation:**
+- PHPUnit: 151 tests (29 Lists + 21 ListItem + 22 HasListsTrait + 24 ListableTrait + 55 ListService), 288 assertions, all passing
+- PHP CodeSniffer (PSR-12): Passed with no errors
+
+**Screenshot:** screenshots/list-service-tests.txt
+
